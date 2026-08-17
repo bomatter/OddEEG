@@ -1,0 +1,72 @@
+[project]
+name = "oddeeg"
+version = "0.1.0"
+description = "Out-of-distribution Detection for EEG (OddEEG)"
+readme = "README.md"
+authors = [{ name = "philipp", email = "72914813+bomatter@users.noreply.github.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "braindecode>=1.2.0",
+    "eegdash>=0.4.1",
+    "flow-matching>=1.0.10",
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "nb-clean>=4.0.1",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "pip>=25.3",
+    "pyyaml>=6.0.3",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.6",
+    "torch>=2.9.0",
+    "torchmetrics>=1.8.2",
+    "torchvision>=0.24.0",
+    "tqdm>=4.67.1",
+    "tyro>=1.0.13",
+    "wandb>=0.22.3",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+  { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[tool.ruff]
+line-length = 120
+extend-include = ["*.ipynb"]  # include notebooks in linting
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors (formatting, spacing)
+    "W",   # pycodestyle warnings (minor formatting issues)
+    "F",   # pyflakes (catches unused imports, undefined variables)
+    "I",   # isort (sorts and groups imports)
+    "UP",  # pyupgrade (updates old Python syntax to modern syntax)
+    "B",   # flake8-bugbear (catches common logic bugs)
+]
+
+ignore = [
+    "E501",  # ignore line length in linter (handled by formatter)
+]
+
+[project.scripts]
+oddeeg-preprocess = "oddeeg.datasets.dataset_factory:main"
+oddeeg-train = "oddeeg.train:main"
+oddeeg-eval = "oddeeg.evaluate:main"
+
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"

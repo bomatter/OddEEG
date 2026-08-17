@@ -1,0 +1,16 @@
+data:
+  TUAB:
+    rawdata_root: /path/to/TUAB/rawdata/
+    deriv_root: /path/to/TUAB/derivatives/
+  CAUEEG:
+    rawdata_root: /path/to/CAUEEG/rawdata/
+    deriv_root: /path/to/CAUEEG/derivatives/
+  BNCI:
+    rawdata_root: /path/to/BNCI/rawdata/
+    deriv_root: /path/to/BNCI/derivatives/
+
+output_root: /path/to/output/
+
+# scratch_root:
+#   - /path/to/preferred_scratch/
+#   - /path/to/alternative_scratch/
