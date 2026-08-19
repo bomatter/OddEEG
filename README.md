@@ -1,6 +1,6 @@
 # OddEEG: Out-of-distribution Detection for EEG
 
-This repository contains the research code for the experiments in our paper *"OOD Detection for EEG-based Machine Learning in High-Risk Environments"*.
+This repository contains the research code for the experiments in our paper *"[OOD Detection for EEG-based Machine Learning in High-Risk Environments](https://arxiv.org/abs/2608.17620)"*.
 
 
 
@@ -67,3 +67,18 @@ Run `uv run oddeeg-eval --help` for the full list of options.
 Refer to the notebooks in the `experiments/` folder for guidance on how to reproduce the main results of the paper. Training and evaluation jobs can be conveniently submitted as slurm jobs from these notebooks or alternatively executed manually via the CLI as described above and in the notebooks.
 
 Some OOD detection methods require a further fitting or calibration step after statistics are extracted in oddeeg-eval jobs. Details for this are also provided in the notebooks.
+
+
+
+## Citation
+```
+@misc{bomatter2026ooddetectioneegbasedmachine,
+      title={OOD Detection for EEG-based Machine Learning in High-Risk Environments}, 
+      author={Philipp Bomatter and Henry Gouk},
+      year={2026},
+      eprint={2608.17620},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2608.17620}, 
+}
+```
